@@ -68,6 +68,7 @@ public final class PhotoEditorViewController: UIViewController {
     var activeTextView: UITextView?
     var imageViewToPan: UIImageView?
     var isTyping: Bool = false
+    var viewWidth: CGFloat = 0 
     
     
     var stickersViewController: StickersViewController!
@@ -104,6 +105,13 @@ public final class PhotoEditorViewController: UIViewController {
         stickersViewController = StickersViewController(nibName: "StickersViewController", bundle: Bundle(for: StickersViewController.self))
         hideControls()
     }
+
+    override func viewWillLayoutSubviews() {
+       super.viewWillLayoutSubviews()
+       viewWidth= self.view.bounds.width
+       NSLog("bounds = \(self.view.bounds)")
+       NSLog("width = \(viewWidth)")
+     }
     
     func configureCollectionView() {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
