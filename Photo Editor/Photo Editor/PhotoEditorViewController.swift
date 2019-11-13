@@ -68,7 +68,7 @@ public final class PhotoEditorViewController: UIViewController {
     var activeTextView: UITextView?
     var imageViewToPan: UIImageView?
     var isTyping: Bool = false
-    var viewWidth: CGFloat = 0 
+    var viewWidth: CGFloat = 0
     
     
     var stickersViewController: StickersViewController!
@@ -106,11 +106,12 @@ public final class PhotoEditorViewController: UIViewController {
         hideControls()
     }
 
-    override func viewWillLayoutSubviews() {
+    override public func viewWillLayoutSubviews() {
        super.viewWillLayoutSubviews()
-       viewWidth= self.view.bounds.width
-       NSLog("bounds = \(self.view.bounds)")
-       NSLog("width = \(viewWidth)")
+       viewWidth = self.view.bounds.width
+       let size = imageView.image!.suitableSize(widthLimit: viewWidth)
+       let maxHeight = min((size?.height)! , self.view.bounds.height)
+       imageViewHeightConstraint.constant = maxHeight
      }
     
     func configureCollectionView() {
@@ -135,8 +136,9 @@ public final class PhotoEditorViewController: UIViewController {
     
     func setImageView(image: UIImage) {
         imageView.image = image
-        let size = image.suitableSize(widthLimit: UIScreen.main.bounds.width)
-        imageViewHeightConstraint.constant = (size?.height)!
+        let size = image.suitableSize(widthLimit: viewWidth)
+        let maxHeight = min((size?.height)! , self.view.bounds.height)
+        imageViewHeightConstraint.constant = maxHeight
     }
     
     func hideToolbar(hide: Bool) {
