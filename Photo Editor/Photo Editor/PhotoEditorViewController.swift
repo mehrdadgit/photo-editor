@@ -15,6 +15,7 @@ public final class PhotoEditorViewController: UIViewController {
     //To hold the image
     @IBOutlet var imageView: UIImageView!
     @IBOutlet weak var imageViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var imageViewWidthConstraint: NSLayoutConstraint!
     //To hold the drawings and stickers
     @IBOutlet weak var canvasImageView: UIImageView!
 
@@ -68,7 +69,7 @@ public final class PhotoEditorViewController: UIViewController {
     var activeTextView: UITextView?
     var imageViewToPan: UIImageView?
     var isTyping: Bool = false
-    var viewWidth: CGFloat = 0
+
     
     
     var stickersViewController: StickersViewController!
@@ -108,10 +109,20 @@ public final class PhotoEditorViewController: UIViewController {
 
     override public func viewWillLayoutSubviews() {
        super.viewWillLayoutSubviews()
-       viewWidth = self.view.bounds.width
-       let size = imageView.image!.suitableSize(widthLimit: viewWidth)
-       let maxHeight = min((size?.height)! , self.view.bounds.height)
-       imageViewHeightConstraint.constant = maxHeight
+        let viewWidth = self.view.bounds.width
+        let viewHeight = self.view.bounds.height
+        let imageAR = self.image!.size.width / self.image!.size.height
+        let viewAR = viewWidth / viewHeight
+        if imageAR > viewAR {
+            let size = self.image!.suitableSize(widthLimit: viewWidth)
+            imageViewWidthConstraint.constant = viewWidth
+            imageViewHeightConstraint.constant = (size?.height)!
+        }
+        else{
+            let size = self.image!.suitableSize(heightLimit:viewHeight)
+            imageViewWidthConstraint.constant = (size?.width)!
+            imageViewHeightConstraint.constant = viewHeight
+        }
      }
     
     func configureCollectionView() {
@@ -136,9 +147,6 @@ public final class PhotoEditorViewController: UIViewController {
     
     func setImageView(image: UIImage) {
         imageView.image = image
-        let size = image.suitableSize(widthLimit: viewWidth)
-        let maxHeight = min((size?.height)! , self.view.bounds.height)
-        imageViewHeightConstraint.constant = maxHeight
     }
     
     func hideToolbar(hide: Bool) {

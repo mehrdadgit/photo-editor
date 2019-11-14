@@ -31,6 +31,7 @@
                 <outlet property="drawButton" destination="Qm4-f6-DBr" id="yHl-a1-GgN"/>
                 <outlet property="imageView" destination="5rw-9v-ExQ" id="5lP-en-DGc"/>
                 <outlet property="imageViewHeightConstraint" destination="DdY-qb-dfp" id="ZY9-Em-cs4"/>
+                <outlet property="imageViewWidthConstraint" destination="ZFM-xX-4le" id="MW3-lX-cZ9"/>
                 <outlet property="saveButton" destination="mW4-Jz-sic" id="1Uj-nU-EU1"/>
                 <outlet property="shareButton" destination="zlw-H0-WcJ" id="OZv-z0-8s8"/>
                 <outlet property="stickerButton" destination="PLX-iy-2Rc" id="tzt-tW-R1r"/>
@@ -51,7 +52,8 @@
                         <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5rw-9v-ExQ">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="667" id="DdY-qb-dfp"/>
+                                <constraint firstAttribute="height" constant="357" id="DdY-qb-dfp"/>
+                                <constraint firstAttribute="width" constant="373" id="ZFM-xX-4le" userLabel="Image View Width Constraint"/>
                             </constraints>
                         </imageView>
                         <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="n3p-yR-4xc">
@@ -303,7 +305,6 @@
                 <constraint firstItem="87h-1G-t5q" firstAttribute="leading" secondItem="HPk-Bg-V0q" secondAttribute="leading" id="0ft-JY-szV"/>
                 <constraint firstItem="KxU-y4-Jwh" firstAttribute="top" secondItem="Zfb-jk-lQO" secondAttribute="top" constant="-8" id="1QI-yc-Gke"/>
                 <constraint firstItem="Cy8-ap-fH9" firstAttribute="centerX" secondItem="HPk-Bg-V0q" secondAttribute="centerX" id="24Z-2f-Tyk"/>
-                <constraint firstItem="S1Y-ZS-dct" firstAttribute="leading" secondItem="HPk-Bg-V0q" secondAttribute="leading" id="2tC-2e-oA6"/>
                 <constraint firstItem="Cy8-ap-fH9" firstAttribute="leading" secondItem="HPk-Bg-V0q" secondAttribute="leading" id="6eK-mF-0OL"/>
                 <constraint firstItem="3MS-N5-3xY" firstAttribute="top" secondItem="Zfb-jk-lQO" secondAttribute="top" constant="-20" id="Fj6-PW-wbF"/>
                 <constraint firstItem="Zfb-jk-lQO" firstAttribute="trailing" secondItem="3MS-N5-3xY" secondAttribute="trailing" id="M86-Ia-XcZ"/>
@@ -314,7 +315,6 @@
                 <constraint firstItem="ZGa-1B-gkO" firstAttribute="leading" secondItem="HPk-Bg-V0q" secondAttribute="leading" id="YYk-Vg-obo"/>
                 <constraint firstItem="Zfb-jk-lQO" firstAttribute="trailing" secondItem="KxU-y4-Jwh" secondAttribute="trailing" constant="12" id="Z0h-d5-J2Z"/>
                 <constraint firstAttribute="trailing" secondItem="Cy8-ap-fH9" secondAttribute="trailing" id="dlF-iN-Gjg"/>
-                <constraint firstAttribute="trailing" secondItem="S1Y-ZS-dct" secondAttribute="trailing" id="jwU-EC-jaR"/>
                 <constraint firstAttribute="trailing" secondItem="87h-1G-t5q" secondAttribute="trailing" id="kaD-bR-ZZt"/>
                 <constraint firstItem="S1Y-ZS-dct" firstAttribute="centerY" secondItem="HPk-Bg-V0q" secondAttribute="centerY" id="lCZ-Hj-EUs"/>
                 <constraint firstAttribute="trailing" secondItem="rLz-36-0xz" secondAttribute="trailing" id="moc-tG-rwG"/>
